@@ -1,6 +1,12 @@
 # Investor form
 
-## Running app in terminal 
+## Prerequisites
+
+Docker desktop - https://www.docker.com/products/docker-desktop/
+
+## Running the app in terminal
+    
+    git clone git@github.com:pavelloz/investor-form.git
 
     docker-compose up
 
