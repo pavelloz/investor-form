@@ -28,8 +28,8 @@ app.post("/investor", upload.array("files", 3), (req, res) => {
     state,
     zipCode,
   })
-    .then((investor) => {
-      res.status(200).send(JSON.stringify({ status: 200, ...investor }));
+    .then(({ id }) => {
+      res.status(200).send(JSON.stringify({ status: 200, id }));
     })
     .catch((err) => {
       console.log("DB :: Error ::", err);
