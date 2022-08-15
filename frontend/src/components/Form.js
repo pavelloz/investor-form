@@ -27,18 +27,8 @@ function Form() {
   const [flash, setFlash] = useState(null);
   const StatesOptions = useMemo(() => StatesListOptions(), []); // dont fetch every render please
 
-  const testData = false || {
-    firstName: "Paweł",
-    lastName: "Kowalski",
-    dob: "06/24/1987",
-    phone: "7823872378",
-    street: "8th Ave",
-    state: "NY",
-    zipCode: "90210",
-  };
-
   const form = useForm({
-    initialValues: testData || {
+    initialValues: {
       firstName: "",
       lastName: "",
       dob: "",
