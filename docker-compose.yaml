@@ -1,0 +1,37 @@
+version: "3"
+services:
+
+  frontend:
+    build: frontend
+    tty: true
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - ./frontend/src:/frontend/src:cached,ro
+      - ./frontend/public:/frontend/public:cached,ro
+    ports:
+      - "3000:3000"
+
+  backend:
+    build: backend
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://user:pass@postgres:5432/db
+      NODE_ENV: development
+      PORT: 3001
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/backend:cached
+    command: npm start
+
+  postgres:
+    image: postgres:14.5-alpine
+    ports:
+      - "35432:5432"
+    environment:
+      # security 1st
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db

@@ -1,0 +1,24 @@
+{
+  "name": "investor-form",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Add investors",
+  "scripts": {
+    "run": "node ./server.js",
+    "start": "nodemon ./server.js",
+    "migrate": "node ./bin/migrate.js"
+  },
+  "author": "Pawel",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
